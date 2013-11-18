@@ -9,7 +9,7 @@
   <description>LiveFyre</description>
   
   	<properties>
-  		<selenium-web-driver-version>2.31.0</selenium-web-driver-version>
+  		<selenium-web-driver-version>2.35.0</selenium-web-driver-version>
 	  	<testng-version>6.8.7</testng-version>
 		<maven-surefire-version>2.16</maven-surefire-version>
   	</properties>
