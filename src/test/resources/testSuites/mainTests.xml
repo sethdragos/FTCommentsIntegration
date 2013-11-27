@@ -3,10 +3,15 @@
 <suite name="mainSuite">
     
     <test name="Test01">
+    
+    	<parameter name="valid_email" value="user1100101@ft.com" />
+    	<parameter name="valid_userid" value="1100101" />
+    	<parameter name="valid_pseudonym" value="user1100101" />
+    	
         <classes>
             <class name="mainTests.mainTests">
                 <methods>
-                    <include name="VerifyPageTitle"/>
+                    <include name="Login"/>
                 </methods>
             </class>
         </classes>

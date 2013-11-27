@@ -4,11 +4,12 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import pageObjects.TestPage;
 import utils.Constants;
 
 public class mainTests {
@@ -29,11 +30,12 @@ public class mainTests {
 		driver.quit();
 	}
 
-	@Test (testName="VerifyPageTitle")
-	public void VerifyPageTitle() {
+	@Parameters({ "valid_email", "valid_userid", "valid_pseudonym" })
+	@Test (testName="Login")
+	public void VerifyPageTitle(String email, String userid, String pseudonym) {
 		
-		String expectedTitle = "Livefyre test page - FT.com";
-		Assert.assertEquals(this.driver.getTitle(), expectedTitle);
+		TestPage login = new TestPage(driver);
+		login.loginSuccess(email, userid, pseudonym);
 		
 	}
 
