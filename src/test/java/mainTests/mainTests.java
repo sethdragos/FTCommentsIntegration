@@ -9,18 +9,19 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import utils.Constants;
+
 public class mainTests {
 	
 	private WebDriver driver;
-	private String baseURL = ("http://jwt-app.herokuapp.com/");
 
 	@BeforeTest
 	public void createDriver() {
 		driver = new FirefoxDriver();
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		driver.get(baseURL);
+		driver.get(Constants.WEBSITE);
 	}
 
 	@AfterTest
