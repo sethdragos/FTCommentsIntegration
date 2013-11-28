@@ -22,8 +22,9 @@ public class TestPage {
 	@FindBy(id = "ftLogin-pseudonym")
 	private WebElement PseudonymField;	
 	
-	@FindBy(css = "css=p.ftLogin-rememberMe > button.standardImage")
-	private WebElement SubmitButton;
+	//@FindBy(css = "css=p.ftLogin-rememberMe > button.standardImage")
+	@FindBy(xpath = ".//*[@id='ftLogin-box']/form/fieldset[4]/p[1]/button")
+	private WebElement SubmitBtn;
 	
 	public TestPage(WebDriver _driver)
 	{
@@ -32,15 +33,17 @@ public class TestPage {
 		
 		String expectedTitle = "Livefyre test page - FT.com";
 		Assert.assertEquals(this.driver.getTitle(), expectedTitle);
-		
+		System.out.println("Debug msg: Title OK");		
 	}
 	
 	private void executeLogin(String email, String userid, String pseudonym) {
 		
+		SignInBtn.click();
 		EmailField.sendKeys(email);
 		UserIdField.sendKeys(userid);
 		PseudonymField.sendKeys(pseudonym);
-		SignInBtn.submit();
+		SubmitBtn.click();
+		System.out.println("Debug msg: Credentials SENT");	
 	}
 	
 	public TestPage loginSuccess(String email, String userid, String pseudonym) {

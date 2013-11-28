@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import pageObjects.TestPage;
 import utils.Constants;
 
-public class mainTests {
+public class MainTests {
 	
 	private WebDriver driver;
 
@@ -32,7 +32,7 @@ public class mainTests {
 
 	@Parameters({ "valid_email", "valid_userid", "valid_pseudonym" })
 	@Test (testName="Login")
-	public void VerifyPageTitle(String email, String userid, String pseudonym) {
+	public void login(String email, String userid, String pseudonym) {
 		
 		TestPage login = new TestPage(driver);
 		login.loginSuccess(email, userid, pseudonym);

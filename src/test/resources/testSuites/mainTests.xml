@@ -9,7 +9,7 @@
     	<parameter name="valid_pseudonym" value="user1100101" />
     	
         <classes>
-            <class name="mainTests.mainTests">
+            <class name="mainTests.MainTests">
                 <methods>
                     <include name="Login"/>
                 </methods>
