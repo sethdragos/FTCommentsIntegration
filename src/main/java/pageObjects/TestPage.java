@@ -42,7 +42,7 @@ public class TestPage {
 		EmailField.sendKeys(email);
 		UserIdField.sendKeys(userid);
 		PseudonymField.sendKeys(pseudonym);
-		SubmitBtn.click();
+		SubmitBtn.submit();
 		System.out.println("Debug msg: Credentials SENT");	
 	}
 	
