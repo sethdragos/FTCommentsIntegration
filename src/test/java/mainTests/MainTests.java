@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import pageObjects.TestPage;
+import pageObjects.LoginComponent;
 import utils.Constants;
 
 public class MainTests {
@@ -34,7 +34,7 @@ public class MainTests {
 	@Test (testName="Login")
 	public void login(String email, String userid, String pseudonym) {
 		
-		TestPage login = new TestPage(driver);
+		LoginComponent login = new LoginComponent(driver);
 		login.loginSuccess(email, userid, pseudonym);
 		
 	}
