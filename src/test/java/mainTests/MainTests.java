@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import pageObjects.HomePage;
 import pageObjects.LoginComponent;
 import utils.Constants;
 
@@ -32,10 +33,13 @@ public class MainTests {
 
 	@Parameters({ "valid_email", "valid_userid", "valid_pseudonym" })
 	@Test (testName="Login")
-	public void login(String email, String userid, String pseudonym) {
+	public void login() {
+		//String email, String userid, String pseudonym
+		HomePage homepage = new HomePage(driver);
+		homepage.loginWindow.goToLoginComponent();
 		
 		LoginComponent login = new LoginComponent(driver);
-		login.loginSuccess(email, userid, pseudonym);
+		login.loginSuccess("user1100101@ft.com", "1100101", "user1100101@ft.com");
 		
 	}
 

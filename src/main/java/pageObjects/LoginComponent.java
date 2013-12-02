@@ -32,6 +32,7 @@ public class LoginComponent {
 		
 		Assert.assertEquals(true, loginBox.isDisplayed());	
 		System.out.println("debug: login-box is displayed");
+		
 	}
 	
 	private void executeLogin(String email, String userid, String pseudonym) {
@@ -40,7 +41,7 @@ public class LoginComponent {
 		UserIdField.sendKeys(userid);
 		PseudonymField.sendKeys(pseudonym);
 		SubmitBtn.submit();
-		System.out.println("Debug msg: Credentials SENT");	
+		System.out.println("debug msg: credentials SENT");	
 	}
 	
 	public HomePage loginSuccess(String email, String userid, String pseudonym) {
@@ -52,7 +53,6 @@ public class LoginComponent {
 	public HomePage loginFail(String email, String userid, String pseudonym) {
 		
 		executeLogin(email, userid, pseudonym);
-		
 		return new HomePage(driver);
 	}
 	

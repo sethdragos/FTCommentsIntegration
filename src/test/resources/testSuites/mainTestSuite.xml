@@ -10,9 +10,11 @@
     	
         <classes>
             <class name="mainTests.MainTests">
+            <!--
                 <methods>
                     <include name="Login"/>
                 </methods>
+            -->
             </class>
         </classes>
     </test>
