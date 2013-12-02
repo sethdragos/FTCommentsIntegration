@@ -24,22 +24,38 @@ public class MainTests {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		driver.get(Constants.WEBSITE);
+		System.out.println("debug: webdriver initialized OK");
 	}
 
 	@AfterTest
 	public void tidyUp() {
 		driver.quit();
+		System.out.println("debug: webdriver shutdown OK");
 	}
 
 	@Parameters({ "valid_email", "valid_userid", "valid_pseudonym" })
-	@Test (testName="Login")
-	public void login() {
-		//String email, String userid, String pseudonym
+	@Test
+	public void validLogin(String email, String userid, String pseudonym) {
+		
 		HomePage homepage = new HomePage(driver);
 		homepage.loginWindow.goToLoginComponent();
 		
 		LoginComponent login = new LoginComponent(driver);
-		login.loginSuccess("user1100101@ft.com", "1100101", "user1100101@ft.com");
+		login.loginSuccess(email, userid, pseudonym);
+		
+	}
+	
+	@Parameters({ "invalid_email", "invalid_userid", "invalid_pseudonym" })
+	@Test
+	public void invalidLogin(String email, String userid, String pseudonym) {
+		
+		//TODO incorrect flow while using JWT-App.herokuapp.com, should refactor after switching to FT.com
+		
+		HomePage homepage = new HomePage(driver);
+		homepage.loginWindow.goToLoginComponent();
+		
+		LoginComponent login = new LoginComponent(driver);
+		login.loginSuccess(email, userid, pseudonym);
 		
 	}
 

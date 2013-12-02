@@ -8,7 +8,7 @@ import org.testng.Assert;
 
 public class LoginComponent {
 	
-	private final WebDriver driver;
+	private WebDriver driver;
 	
 	@FindBy (id = "ftLogin-box")
 	private WebElement loginBox;
