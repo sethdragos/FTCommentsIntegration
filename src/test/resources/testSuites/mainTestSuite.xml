@@ -3,19 +3,26 @@
 <suite name="mainTestSuite">
     
     <test name="LiveFyre Login Flows" preserve-order="true" verbose="1">
-    
-    	<parameter name="valid_email" value="user1100101@ft.com" />
+
+    	<parameter name="valid_email" value="shilstonpremium@assanka.com" />
+    	<parameter name="valid_password" value="premium1" />
+    	<parameter name="invalid_email" value="user1100101@ft.com" />
+    	<parameter name="invalid_password" value="1100101" />
+   
+   		<!-- 
+   		<parameter name="valid_email" value="user1100101@ft.com" />
     	<parameter name="valid_userid" value="1100101" />
     	<parameter name="valid_pseudonym" value="user1100101" />
     	<parameter name="invalid_email" value="invaliduser@ft.com" />
     	<parameter name="invalid_userid" value="00000" />
     	<parameter name="invalid_pseudonym" value="invaliduser" />
+    	-->
     	
         <classes>
             <class name="mainTests.MainTests">
                 <methods>
                     <include name="validLogin"/>
-                    <exclude name="invalidLogin"/>
+                    <include name="invalidLogin"/>                    
                 </methods>
             </class>
         </classes>

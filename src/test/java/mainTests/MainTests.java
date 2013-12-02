@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import pageObjects.HeaderComponent;
 import pageObjects.HomePage;
 import pageObjects.LoginComponent;
 import utils.Constants;
@@ -19,43 +20,42 @@ public class MainTests {
 
 	@BeforeTest
 	public void createDriver() {
+		
 		driver = new FirefoxDriver();
 		//driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
 		driver.get(Constants.WEBSITE);
-		System.out.println("debug: webdriver initialized OK");
 	}
 
 	@AfterTest
 	public void tidyUp() {
 		driver.quit();
-		System.out.println("debug: webdriver shutdown OK");
 	}
 
-	@Parameters({ "valid_email", "valid_userid", "valid_pseudonym" })
+	@Parameters({ "valid_email", "valid_password" })
 	@Test
-	public void validLogin(String email, String userid, String pseudonym) {
+	public void validLogin(String email, String password) {
 		
 		HomePage homepage = new HomePage(driver);
 		homepage.loginWindow.goToLoginComponent();
 		
-		LoginComponent login = new LoginComponent(driver);
-		login.loginSuccess(email, userid, pseudonym);
+		LoginComponent signin = new LoginComponent(driver);
+		signin.loginSuccess(email, password);
 		
+		HeaderComponent signout = new HeaderComponent(driver);
+		signout.logOut();
+	
 	}
 	
-	@Parameters({ "invalid_email", "invalid_userid", "invalid_pseudonym" })
+	@Parameters({ "invalid_email", "invalid_password" })
 	@Test
-	public void invalidLogin(String email, String userid, String pseudonym) {
-		
-		//TODO incorrect flow while using JWT-App.herokuapp.com, should refactor after switching to FT.com
+	public void invalidLogin(String email, String password) {
 		
 		HomePage homepage = new HomePage(driver);
 		homepage.loginWindow.goToLoginComponent();
 		
 		LoginComponent login = new LoginComponent(driver);
-		login.loginSuccess(email, userid, pseudonym);
+		login.loginFail(email, password);
 		
 	}
 

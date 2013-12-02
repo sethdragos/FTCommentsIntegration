@@ -16,44 +16,38 @@ public class LoginComponent {
 	@FindBy(id = "ftLogin-username")
 	private WebElement EmailField;
 	
-	@FindBy(id = "ftLogin-userid")
-	private WebElement UserIdField;
-	
-	@FindBy(id = "ftLogin-pseudonym")
-	private WebElement PseudonymField;	
-	
-	@FindBy(xpath = ".//*[@id='ftLogin-box']/form/fieldset[4]/p[1]/button")
-	private WebElement SubmitBtn;
+	@FindBy(id = "ftLogin-password")
+	private WebElement PasswordField;
+		
+	@FindBy(xpath = ".//*[@id='ftLogin-box']/form/fieldset[3]/p[1]/button")
+	private WebElement SignInBtn;
 	
 	public LoginComponent(WebDriver _driver)
 	{
 		this.driver = _driver;
 		PageFactory.initElements(driver, this);
 		
-		Assert.assertEquals(true, loginBox.isDisplayed());	
-		System.out.println("debug: login-box is displayed");
+		Assert.assertEquals(true, loginBox.isDisplayed());
 		
 	}
 	
-	private void executeLogin(String email, String userid, String pseudonym) {
+	private void executeLogin(String email, String password) {
 		
 		EmailField.sendKeys(email);
-		UserIdField.sendKeys(userid);
-		PseudonymField.sendKeys(pseudonym);
-		SubmitBtn.submit();
-		System.out.println("debug msg: credentials SENT");	
+		PasswordField.sendKeys(password);
+		SignInBtn.submit();	
 	}
 	
-	public HomePage loginSuccess(String email, String userid, String pseudonym) {
+	public HomePage loginSuccess(String email, String password) {
 
-		executeLogin(email, userid, pseudonym);		
+		executeLogin(email, password);		
 		return new HomePage(driver);
 	}
 	
-	public HomePage loginFail(String email, String userid, String pseudonym) {
+	public IncorrectLoginPage loginFail(String email, String password) {
 		
-		executeLogin(email, userid, pseudonym);
-		return new HomePage(driver);
+		executeLogin(email, password);
+		return new IncorrectLoginPage(driver);
 	}
 	
 }
