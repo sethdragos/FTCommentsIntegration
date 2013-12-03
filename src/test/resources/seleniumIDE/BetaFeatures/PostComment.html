@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://www.ft.com/" />
+<title>PostComment</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">PostComment</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/cms/s/0/3a9a601a-5bf2-11e3-931e-00144feabdc0.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>id=iai-barrier</td>
+	<td></td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{var date = new Date(); date.getTime();}</td>
+	<td>time</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(100,2000)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>class=editable fyre-editor-field</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>class=editable fyre-editor-field</td>
+	<td>Selenium_Auto_Test ${time}</td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>css=div.goog-inline-block.fyre-button-right-inner-box</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>xpath=//span[@class='fyre-editor-error']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>It seems you're attempting to post an empty comment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>As much as you liked your comment, you're not allowed to post it twice</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Selenium_Auto_Test ${time}</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
