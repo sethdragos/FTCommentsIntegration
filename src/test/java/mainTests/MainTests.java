@@ -58,5 +58,11 @@ public class MainTests {
 		login.loginFail(email, password);
 		
 	}
+	
+	@Test
+	public void betaFeatures() {
+		
+		
+	}
 
 }

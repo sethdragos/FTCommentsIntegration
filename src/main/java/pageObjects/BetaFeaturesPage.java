@@ -26,7 +26,7 @@ public class BetaFeaturesPage {
 	private WebElement LiveFyreAutoLoginOptInBtn;
 	
 	@FindBy (xpath = ".//*[@id='beta-features-dashboard']/div/div/div[2]/div/div/div[2]/div/div/a[2]")
-	private WebElement LiveFyreAutoLoginOptOUTBtn;
+	private WebElement LiveFyreAutoLoginOptOutBtn;
 	
 	public BetaFeaturesPage(WebDriver _driver) {
 		
@@ -35,6 +35,48 @@ public class BetaFeaturesPage {
 		
 		String expectedTitle = "Internal beta features";
 		Assert.assertEquals(this.driver.getTitle(), expectedTitle);
+		
+	}
+	
+	public BetaFeaturesPage BetaFeaturesOptIn() {
+		
+		this.BetaFeatureOptInBtn.click();		
+		return new BetaFeaturesPage(driver);
+		
+	}
+	
+	public BetaFeaturesPage BetaFeaturesOptOut() {
+		
+		this.BetaFeatureOptOutBtn.click();		
+		return new BetaFeaturesPage(driver);
+		
+	}
+	
+	public BetaFeaturesPage LiveFyreOptIn() {
+		
+		this.LiveFyreOptInBtn.click();		
+		return new BetaFeaturesPage(driver);
+		
+	}
+	
+	public BetaFeaturesPage LiveFyreOptOut() {
+		
+		this.LiveFyreOptOutBtn.click();		
+		return new BetaFeaturesPage(driver);
+		
+	}
+	
+	public BetaFeaturesPage LiveFyreAutoLoginOptIn() {
+		
+		this.LiveFyreAutoLoginOptInBtn.click();		
+		return new BetaFeaturesPage(driver);
+		
+	}
+	
+	public BetaFeaturesPage LiveFyreAutoLoginOptOut() {
+		
+		this.LiveFyreAutoLoginOptOutBtn.click();		
+		return new BetaFeaturesPage(driver);
 		
 	}
 
